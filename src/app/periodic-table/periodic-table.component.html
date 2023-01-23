@@ -1,0 +1,17 @@
+<div class="grid grid-cols-18 grid-rows-7 h-fit w-fit bg-transparent m-2">
+    <button *ngFor="let n of numSequence(118);let i = index" class="h-12 w-12 hover:h-16 hover:w-16 hover:-m-2 hover:shadow-md hover:z-10 hover:rounded-md {{getbgColor(elementsData[elementsData.order[i]].category)}} {{ptIs_1(i)}} {{ptIs_4(i)}} {{ptIs_fr56_to70(i)}} {{ptIs_fr88_to102(i)}} {{ptIs_71or103(i)}} {{getElementStateColor(elementsData[elementsData.order[i]].melt,elementsData[elementsData.order[i]].boil)}} relative bg-opacity-80 text-black border-slate-50 dark:border-slate-900 transition-all"
+        (click)="setActiveElement(elementsData.order[i])">
+          <p class="text-[9px] font-semibold leading-4">{{elementsData[elementsData.order[i]].number}}</p>
+          <p class="font-bold text-base leading-4">{{elementsData[elementsData.order[i]].symbol}}</p>
+          <p class="text-[7.5px] font-semibold leading-4">{{elementsData[elementsData.order[i]].name}}</p>
+          <div class="absolute inset-y-0 opacity-0 hover:opacity-100 hover:bg-white rounded-md w-52 flex flex-row items-center space-x-2 p-2 border dark:border-slate-600 dark:hover:bg-slate-800">
+            <img class="w-12 h-12 rounded-md " src={{elementsData[elementsData.order[i]].image}}/>
+            <div class="flex flex-col items-start dark:text-white">
+            <p class="font-bold leading-4">{{elementsData[elementsData.order[i]].name}}</p>
+            <p class="text-xs font-semibold leading-3 dark:text-white">{{elementsData[elementsData.order[i]].atomic_mass}}</p>
+            <p class="text-xs font-semibold leading-3 capitalize dark:text-white">{{elementsData[elementsData.order[i]].category}}</p>
+            <p class="text-xs font-semibold leading-3 dark:text-white capitalize">{{getElementState(elementsData[elementsData.order[i]].melt,elementsData[elementsData.order[i]].boil)}} @ {{currentTemp}}K</p>
+            </div>
+          </div>
+        </button>
+</div>

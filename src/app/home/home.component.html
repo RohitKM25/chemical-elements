@@ -1,0 +1,42 @@
+<div class="flex flex-row">
+    <div class="flex flex-col items-center">
+        <div class="grid grid-cols-18 grid-rows-7 h-fit w-fit bg-transparent m-2">
+            <app-periodic-table-element *ngFor="let n of elementsData?.order" [element]="elementsData[n]" [environment]="environment" (elementClick)="setActiveElement(n)">
+
+            </app-periodic-table-element>
+        </div>
+        <form>
+            <input #temperatureSetter type="range" min="0" max="6500" step="1" class="w-[800px] dark:bg-slate-800" [value]="environment.temperature" (change)="setCurrentTemp(temperatureSetter.value)" />
+        </form>
+        <div #ij></div>
+        <div>
+            <p>Temperature: {{environment.temperature}}</p>
+            <button (click)="setCurrentTemp(environment.temperature-5)">
+            <span class="material-icons-round">
+              chevron_left
+            </span>
+          </button>
+            <button (click)="setCurrentTemp(environment.temperature+5)">
+            <span class="material-icons-round">
+              chevron_right
+            </span>
+          </button>
+        </div>
+    </div>
+    <div class="flex flex-col items-stretch flex-grow border-l dark:border-slate-600">
+        <div class="flex items-center h-14 p-2 border-b border-inherit">
+            <div class="flex flex-col">
+                <p class="text-xl font-bold">{{elementsData[activeElement].name}}</p>
+                <p class="text- font-semibold capitalize">{{elementsData[activeElement].category}}</p>
+            </div>
+            <div class="flex-grow"></div>
+            <div class="w-12 h-12 rounded-full bg-opacity-80 flex flex-col items-center text-black">
+                <p class="text-[9px] font-semibold leading-4">{{elementsData[activeElement].number}}</p>
+                <p class="font-bold text-xl leading-4">{{elementsData[activeElement].symbol}}</p>
+            </div>
+        </div>
+        <div>
+
+        </div>
+    </div>
+</div>

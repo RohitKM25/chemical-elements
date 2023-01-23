@@ -1,1 +1,64 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss/base"
+@import "tailwindcss/components"
+@import "tailwindcss/utilities"
+
+.element
+  &-position
+    &-1
+      @apply col-start-[18]
+
+    &-4or12
+      @apply col-start-[13]
+
+    &-55to71:nth-child(n)
+      @apply col-start-[n+3] row-start-[9]
+
+    &-87to103:nth-child(n)
+      @apply col-start-[n+3] row-start-[10]
+
+    &-71or103
+      @apply col-start-[4]
+
+  &-default
+    &-alkali-metal
+      @apply bg-green-200
+
+    &-alkaline-earth-metal
+      @apply bg-orange-200
+
+    &-polyatomic-nonmetal
+      @apply bg-emerald-200
+
+    &-diatomic-nonmetal
+        @apply bg-emerald-200
+
+    &-noble-gas
+        @apply bg-green-200
+
+    &-metalloid
+        @apply bg-lime-200
+
+    &-transition-metal
+        @apply bg-rose-200
+
+    &-post-transition-metal
+        @apply bg-fuchsia-200
+
+    &-lanthanide
+        @apply bg-teal-200
+
+    &-actinide
+        @apply bg-blue-200
+
+  &-heat
+    &-unknown
+      @apply bg-white
+
+    &-solid
+      @apply bg-violet-500
+
+    &-liquid
+      @apply bg-pink-500
+
+    &-gas
+      @apply bg-orange-500
